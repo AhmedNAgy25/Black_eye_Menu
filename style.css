@@ -1,15 +1,42 @@
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --color-primary: #2d2926;
+  --color-secondary: #725b53;
+  --color-accent: #9b6b58;
+  --color-background: #f8f5f2;
+  --color-card: white;
+  --color-border: #e6ddd6;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.8rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 15px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  /* Typography */
+  --font-primary: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-decorative: "Pinyon Script", cursive;
+}
+
 /* CSS Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-primary);
 }
 
 /* Base Styles */
 body {
-  background-color: #f8f5f2;
-  color: #2d2926;
+  background-color: var(--color-background);
+  color: var(--color-primary);
   line-height: 1.6;
 }
 
@@ -17,15 +44,15 @@ body {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: var(--spacing-xl);
 }
 
 /* Header Component */
 header {
-  background-color: #2d2926;
-  color: #f8f5f2;
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-sm);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,7 +68,7 @@ header h1 {
   font-weight: 400;
   letter-spacing: 1px;
   margin: 0;
-  font-family: "Pinyon Script", cursive;
+  font-family: var(--font-decorative);
 }
 
 header img {
@@ -52,19 +79,19 @@ header img {
 .menu {
   text-align: center;
   font-size: 3.5rem;
-  margin: 0 auto 2rem;
-  padding: 0 3rem;
-  color: #2d2926;
+  margin: 0 auto var(--spacing-xl);
+  padding: 0 var(--spacing-xl);
+  color: var(--color-primary);
   font-weight: 500;
   letter-spacing: 3px;
-  font-family: "Pinyon Script", cursive;
+  font-family: var(--font-decorative);
   position: relative;
   display: block;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 0.5rem;
+  padding-bottom: var(--spacing-xs);
 }
 
 .menu::after {
@@ -78,18 +105,18 @@ header img {
   background: linear-gradient(
     90deg,
     transparent,
-    #2d2926 20%,
-    #2d2926 80%,
+    var(--color-primary) 20%,
+    var(--color-primary) 80%,
     transparent
   );
 }
 
 .itemList h2 {
   font-size: 1.5rem;
-  color: #725b53;
-  margin: 2rem 0 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #e6ddd6;
+  color: var(--color-secondary);
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-border);
   font-weight: 500;
   direction: rtl;
   position: relative;
@@ -100,7 +127,7 @@ header img {
   position: absolute;
   left: 0;
   bottom: -2px;
-  color: #725b53;
+  color: var(--color-secondary);
   font-size: 1.2rem;
 }
 
@@ -108,22 +135,22 @@ header img {
 .items-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
-  padding: 0.5rem;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xs);
   direction: rtl;
 }
 
 /* Menu Item Card */
 .menu-item {
-  background: white;
+  background: var(--color-card);
   padding: 1.2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow-md);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.2s;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: var(--spacing-md);
   direction: rtl;
   opacity: 0;
   transform: translateY(20px);
@@ -136,20 +163,20 @@ header img {
 
 .menu-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Menu Item Text */
 .item-name {
   font-size: 1.1rem;
-  color: #2d2926;
+  color: var(--color-primary);
   font-weight: 500;
   direction: rtl;
   text-align: right;
 }
 
 .item-price {
-  color: #9b6b58;
+  color: var(--color-accent);
   font-weight: 600;
   font-size: 1.1rem;
 }
@@ -157,7 +184,7 @@ header img {
 /* Responsive Design */
 @media (max-width: 768px) {
   .content {
-    padding: 1rem;
+    padding: var(--spacing-md);
   }
 
   .items-container {
@@ -165,7 +192,7 @@ header img {
   }
 
   header {
-    padding: 0.8rem;
+    padding: var(--spacing-sm);
   }
 
   header h1 {
@@ -178,7 +205,7 @@ header img {
 
   .menu {
     font-size: 2.5rem;
-    padding: 0 2rem;
+    padding: 0 var(--spacing-xl);
   }
 
   .menu::after {

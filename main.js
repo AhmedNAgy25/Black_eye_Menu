@@ -31,7 +31,7 @@ async function fetchItems() {
 }
 
 const menuItems = await fetchItems();
-// console.log(menuItems);
+// console.log(menuItems);  //for testing
 
 // Create a single menu item element
 function createMenuItem(name, price) {
@@ -76,34 +76,13 @@ function displayRegularCategory(category, items) {
   itemList.appendChild(itemsContainer);
 }
 
-// Handle pizza category specifically
-function displayPizzaCategory(pizzaData) {
-  const pizzaHeader = createCategoryHeader("Pizza");
-  const pizzaContainer = createItemsContainer();
-
-  Object.entries(pizzaData).forEach(([_size, pizzas]) => {
-    pizzas.forEach((pizza) => {
-      const pizzaElement = createMenuItem(pizza.name, pizza.price);
-      pizzaContainer.appendChild(pizzaElement);
-    });
-  });
-
-  itemList.appendChild(pizzaHeader);
-  itemList.appendChild(pizzaContainer);
-}
-
 // Main display function
 function displayMenuItems() {
   itemList.innerHTML = "";
 
   Object.entries(menuItems).forEach(([category, items]) => {
-    if (category === "Pizza") return;
     displayRegularCategory(category, items);
   });
-
-  if (menuItems.Pizza) {
-    displayPizzaCategory(menuItems.Pizza);
-  }
 }
 
 // Call the function to display menu items
