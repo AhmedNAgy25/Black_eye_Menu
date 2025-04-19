@@ -76,11 +76,11 @@ live-server --port=3000
 ```
 
 ## 📬 Contact
-Ahmed Nagy - [GitHub Profile](https://github.com/AhmedNAgy25) - [Email](ahmednagy25t@gmail.com)
+Ahmed Nagy - [GitHub Profile](https://github.com/AhmedNAgy25) 
 
 ---
 
 **Happy brewing!** ☕✨  
 *Optimized for modern browsers (Chrome/Firefox/Safari/Edge latest versions)*
-```
+
 
